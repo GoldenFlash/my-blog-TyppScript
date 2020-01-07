@@ -1,11 +1,11 @@
 import React from "react"
 import { Carousel } from 'antd';
 import './carousel.scss'
-function onChange(a, b, c) {
+function onChange(a: any, b: any, c: any) {
     console.log(a, b, c);
 }
 
-export default function CoustomCarousel(props) {
+export default function CoustomCarousel(props:any) {
     let images=[
        
         "http://pic1.win4000.com/wallpaper/5/585900095b4b0.jpg",
@@ -14,7 +14,7 @@ export default function CoustomCarousel(props) {
     ]
     return (
         <div style={styles.wrapper}>
-            <Carousel autoplay afterChange={onChange}>
+            <Carousel autoplay>
                 {
                     images.map(item=>{
                         return(

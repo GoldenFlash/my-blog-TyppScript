@@ -6,7 +6,7 @@
 // import cache from "./cache";
 // import config from "./config";
 import axios from 'axios'
-function objToString(obj) {
+function objToString(obj: { [x: string]: any; }) {
   let arr = [];
   for (let item in obj) {
     let str = `${item}=${obj[item]}`;
@@ -18,7 +18,7 @@ function objToString(obj) {
   }
 }
 
-let request = function(url, data = {}, method = "GET", key, time) {
+let request = function(url: string, data = {}, method = "GET", key: string, time: number) {
   return new Promise((resolve, reject) => {
     let requestObj = {};
     

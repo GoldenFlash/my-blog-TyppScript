@@ -11,21 +11,21 @@ import marked from "marked";
 import './style.scss'
 
 
-export default function ArticleList(props) {
+export default function ArticleList(props:any) {
     let list = props.list
     var HTMLtag = new RegExp("<.+?>", "g");
-    function navigate(item) {
+    function navigate(item:any) {
         props.history.push(`/article/${item._id}`)
     }
     return (
         <div className="articalList">
 
         {
-            list.map((item, i) => {
+            list.map((item: { title?: any; content?: any; author?: any; creatTime?: any; view?: any; _id?: any; }, i: string | number | undefined) => {
                 //   let content = translateMarkdown(item.content.substr(0, 300))
                 return (
                     // {marked(item.content).replace(HTMLtag, "").substr(0, 300)}
-                    <div key={i} onClick={navigate.bind(this, item)} className="artical">
+                    <div key={i} onClick={() => { navigate(item)}} className="artical">
                         <div style={{ flex: 1 }}>
                             <div>
                                 <span style={{ fontSize: "22px", fontWeight: "bold" }}>

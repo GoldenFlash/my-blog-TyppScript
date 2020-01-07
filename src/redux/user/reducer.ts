@@ -1,3 +1,4 @@
+
 var jwt = require('jsonwebtoken');
 
 let defaultUserState = {
@@ -15,14 +16,18 @@ if(token){
 	console.log("decoded", decoded)
 }
 if (document.cookie) {
-    var userInfo = {}
-    var cookies = document.cookie.split(";")
-
+	let userInfo = {
+		account:"",
+		auth:"",
+		nickName:"",
+		userId:""
+	}
+	var cookies = document.cookie.split(";")
+	console.log("cookies", cookies)
     cookies.forEach((item) => {
         var arr = item.split("=")
-        userInfo[arr[0].trim()] = arr[1]
+		// userInfo[arr[0].trim()] = arr[1]
     })
-    console.log("userInfo", userInfo)
     var islogin = false
     if(userInfo.userId){
         islogin = true
@@ -32,7 +37,7 @@ if (document.cookie) {
     
 }
 
-const userReducer = (state=defaultUserState,action)=>{
+const userReducer = (state=defaultUserState,action:any)=>{
 	switch(action.type){
 		case "login":
 			return {
