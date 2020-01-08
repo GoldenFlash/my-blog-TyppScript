@@ -16,7 +16,7 @@ if(token){
 	console.log("decoded", decoded)
 }
 if (document.cookie) {
-	let userInfo = {
+	let userInfo:any = {
 		account:"",
 		auth:"",
 		nickName:"",
@@ -24,9 +24,11 @@ if (document.cookie) {
 	}
 	var cookies = document.cookie.split(";")
 	console.log("cookies", cookies)
-    cookies.forEach((item) => {
-        var arr = item.split("=")
-		// userInfo[arr[0].trim()] = arr[1]
+    cookies.forEach((item:any) => {
+		var arr = item.split("=")
+		let key = arr[0].trim()
+		let value = arr[1]
+		userInfo[key] = value;
     })
     var islogin = false
     if(userInfo.userId){
